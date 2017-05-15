@@ -6,14 +6,14 @@ body {
   margin: 0;
   font-family: 'Helvetica Neue';
   -webkit-font-smoothing: antialiased;
-  background-color: #FFFFFF;
   color: #FFFFFF;
-  height: 100%;
 }
 
 /* COMPONENTS */
 
 /* Header */
+/* I tend to prefix my classnames with something that is fairly unique to the project. I do this as habit so it is less of a
+headache when introducing thirdparty components with their own stylesheets, and having to manage conflicts in classnames. */
 .ft-header {
   position: absolute;
   top: 70px;
@@ -27,9 +27,6 @@ body {
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.2);
   font-size: 12px;
-
-  /* Due to the absolute positioning of the header block, and that it's one of the first elements of the content body, we set it
-  to 1 so it takes precedence over the following sections (Which are relatively positioned) */
   z-index: 1;
 }
 
@@ -191,33 +188,28 @@ body {
 }
 
 /* FLEX */
+/* I have come to really like using flexbox for it's versatility. Especially when it comes to responsivity. The technique I
+typically use is to have "surgical-like" flexbox classes which I can re-use. E.g. ft-flex--column, ft-flex--justify-around, etc.
+Unless the flexbox layout makes sense to be integrated in the component, I would typically use these custom flex classes for
+general page layout, or edge cases. I should also note that I would usually have more to include the remaining flexbox behaviours,
+but have removed those to reduce bloat. */
 .ft-flex {
   display: flex;
   flex: 1;
 }
 
-.ft-flex--column          { flex-direction: column; }
-
-.ft-flex--grow-1          { flex-grow: 1; }
-
-.ft-flex--justify-start   { justify-content: flex-start; }
-.ft-flex--justify-end     { justify-content: flex-end; }
-.ft-flex--justify-between { justify-content: space-between; }
+.ft-flex--column { flex-direction: column; }
 .ft-flex--justify-around { justify-content: space-around; }
-.ft-flex--justify-center  { justify-content: center; }
-
-.ft-flex--align-start     { align-items: flex-start; }
-.ft-flex--align-end       { align-items: flex-end; }
-.ft-flex--align-baseline  { align-items: baseline; }
-.ft-flex--align-center    { align-items: center; }
-.ft-flex--align-stretch   { align-items: stretch; }
+.ft-flex--align-center { align-items: center; }
 
 /* SURGICAL */
-.ft-hidden       { display: none !important; }
-.ft-align-left   { text-align: left !important; }
-.ft-align-center { text-align: center !important; }
-.ft-align-right  { text-align: right !important; }
-.ft-mtl          { margin-top: 30px; }
+/* While I tend to avoid too many surgical classes, there are a few that I find extremely helpful. Particularly content-box
+modifier classes. E.g. mts (margin top small) plm (padding left medium) man (margin all none). These semantic value (small -
+large) can be set to values that make sense for the generaly layout of the app you are building. In addition having very simple
+but commonly used surgical classes like "hidden" I find are extremely useful, especially when it comes to responsive edge
+cases. */
+.ft-mtl { margin-top: 30px; }
+.ft-hidden { display: none !important; }
 
 /* RESPONSIVE */
 @media (min-width: 670px) {
@@ -237,14 +229,12 @@ body {
   .ft-tile--featured { height: initial; }
   .ft-tile--res-featured { min-height: 480px; }
 
-  .ft-res--ib { display: inline-block; }
-  .ft-res--hidden { display: none; }
-
   .ft-flex--res-row { flex-direction: row; }
 
-  .ft-res-full { width: 100%; }
+  /* SURGICAL */
+  .ft-res--ib { display: inline-block; }
+  .ft-res--hidden { display: none; }
   .ft-res-half { width: 50%; }
-  .ft-res-full-h { height: 100%; }
   .ft-res-half-h { height: 50%; }
   .ft-res-mrm { margin-right: 15px; }
   .ft-res-mlm { margin-left: 15px; }
