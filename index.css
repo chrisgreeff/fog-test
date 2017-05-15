@@ -145,6 +145,8 @@ headache when introducing thirdparty components with their own stylesheets, and 
   background-size: cover;
   background-repeat: no-repeat;
   box-sizing: border-box;
+  text-decoration: none;
+  color: #FFFFFF;
 }
 
 .ft-tile--featured { height: 360px; }
