@@ -30,6 +30,9 @@ headache when introducing thirdparty components with their own stylesheets, and 
   z-index: 1;
 }
 
+/* I use `--` as a modifier for a SMACCS module. So I am able to add this class to the root element of the module, and it will
+update the properties necessary. This allows me to reuse the `.ft-header` class multiple times without re-writing all the rules
+for another element that is basically exactly the same. */
 .ft-header--black {
   position: static;
   background-color: #000000;
