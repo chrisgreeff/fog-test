@@ -1,0 +1,251 @@
+/* index.css */
+/* BASE STYLES */
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Helvetica Neue';
+  -webkit-font-smoothing: antialiased;
+  background-color: #FFFFFF;
+  color: #FFFFFF;
+  height: 100%;
+}
+
+/* COMPONENTS */
+
+/* Header */
+.ft-header {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  padding: 0 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-size: 12px;
+
+  /* Due to the absolute positioning of the header block, and that it's one of the first elements of the content body, we set it
+  to 1 so it takes precedence over the following sections (Which are relatively positioned) */
+  z-index: 1;
+}
+
+.ft-header--black {
+  position: static;
+  background-color: #000000;
+}
+
+.ft-header-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.ft-header-nav-link {
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.ft-header-nav-link:hover { opacity: 1; }
+
+/* Section */
+.ft-section {
+  padding: 20px 30px;
+  box-sizing: border-box;
+}
+
+.ft-section--hero {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  position: relative;
+  background: url('assets/banner.jpg') no-repeat center center;
+  background-size: cover;
+  height: 520px;
+}
+
+.ft-section--hero:before,
+.ft-section--hero:after {
+  position: absolute;
+  width: calc(50% - 20px);
+  bottom: 0;
+  border-bottom: 20px solid white;
+  display: block;
+  content: " ";
+}
+
+.ft-section--hero:before {
+  left: 0;
+  border-right: 20px solid transparent;
+}
+
+.ft-section--hero:after {
+  right: 0;
+  border-left: 20px solid transparent;
+}
+
+.ft-section--hero .ft-section-content { max-width: 500px; }
+
+.ft-section-content {
+  max-width: 960px;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Title */
+.ft-title {
+  font-size: 36px;
+  margin: 0 0 30px 0;
+}
+
+/* Paragraph */
+.ft-p {
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.ft-p--tile { font-size: 12px; }
+
+/* Label */
+.ft-label {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Button */
+.ft-button {
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #FFFFFF;
+  border-radius: 20px;
+  padding: 10px 35px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+  white-space: nowrap;
+}
+
+/* Tile*/
+.ft-tile {
+  position: relative;
+  padding: 20px 25px;
+  border-radius: 3px;
+  margin: 10px 0;
+  max-width: calc((960px / 2) - 15px);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+.ft-tile--featured { height: 360px; }
+.ft-tile--1 { background-image: url('assets/tile-1.jpg'); }
+.ft-tile--2 { background-image: url('assets/tile-2.jpg'); }
+.ft-tile--fb { background-color: #3B5998; }
+.ft-tile--yt { background-color: #CD201F; }
+
+.ft-tile-mask {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  left: 0;
+  top: 0;
+  border-radius: 3px;
+}
+
+.ft-tile-category {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  border-radius: 20px;
+  padding: 5px 10px;
+  display: inline-block;
+  font-size: 12px;
+}
+
+.ft-tile-footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: calc(100% - 40px);
+}
+
+.ft-tile-title {
+  font-size: 22px;
+  margin: 0 0 10px 0;
+}
+
+/* FLEX */
+.ft-flex {
+  display: flex;
+  flex: 1;
+}
+
+.ft-flex--column          { flex-direction: column; }
+
+.ft-flex--grow-1          { flex-grow: 1; }
+
+.ft-flex--justify-start   { justify-content: flex-start; }
+.ft-flex--justify-end     { justify-content: flex-end; }
+.ft-flex--justify-between { justify-content: space-between; }
+.ft-flex--justify-around { justify-content: space-around; }
+.ft-flex--justify-center  { justify-content: center; }
+
+.ft-flex--align-start     { align-items: flex-start; }
+.ft-flex--align-end       { align-items: flex-end; }
+.ft-flex--align-baseline  { align-items: baseline; }
+.ft-flex--align-center    { align-items: center; }
+.ft-flex--align-stretch   { align-items: stretch; }
+
+/* SURGICAL */
+.ft-hidden       { display: none !important; }
+.ft-align-left   { text-align: left !important; }
+.ft-align-center { text-align: center !important; }
+.ft-align-right  { text-align: right !important; }
+.ft-mtl          { margin-top: 30px; }
+
+/* RESPONSIVE */
+@media (min-width: 540px) {
+  .ft-header {
+    justify-content: space-between;
+    top: 0;
+  }
+  .ft-header-nav { max-width: 340px; }
+  .ft-header-logo { margin-right: 10px; }
+
+  .ft-section--hero {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .ft-tile--featured { height: initial; }
+  .ft-tile--res-featured { min-height: 480px; }
+
+  .ft-res--ib { display: inline-block; }
+  .ft-res--hidden { display: none; }
+
+  .ft-flex--res-row { flex-direction: row; }
+
+  .ft-res-full { width: 100%; }
+  .ft-res-half { width: 50%; }
+  .ft-res-full-h { height: 100%; }
+  .ft-res-half-h { height: 50%; }
+  .ft-res-mrm { margin-right: 15px; }
+  .ft-res-mlm { margin-left: 15px; }
+}
